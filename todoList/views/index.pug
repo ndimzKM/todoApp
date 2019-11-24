@@ -1,0 +1,32 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title TodoList
+    link(rel='stylesheet' href='/css/style.css')
+body
+    button.btn-logout
+        a(href="/logout") Logout
+    header#main-header
+        h1 Welcome Ndimz, Here are your tasks
+        br
+        p Be sure to fullfil all of them my dear
+        br
+        form(action='/add' method='POST')
+            input(type='text' name='title' placeholder='New task')
+            input(type='submit' value='Add Task')
+    .container
+        .no-todo(style='display:none;')
+            p There is no task added
+        each todo, i in todos
+            .todos
+                li.todo-item
+                    a(href="/todo/"+todo._id)= todo.title
+                    p= todo.time
+                form(action="/todo/"+todo._id method='POST')
+                    input(type="hidden" name='_method' value='Delete')
+                    button.btn-delete(type='submit' name='btn-delete') X
+
+    script(src="/js/jquery.js")
+    script(src="/js/main.js")
