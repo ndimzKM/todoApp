@@ -9,10 +9,14 @@ body{
     color: #fff;
 }
 
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
 #main-header{
     padding: 30px;
-    text-align: center;
-    
+    font-size: 2em;
 }
 
 li{
@@ -35,10 +39,11 @@ input{
 .container{
     width: 70%;
     margin: auto;
-    background: lightslategray;
+    background: #eee;
     color: #000;
     padding: 50px;
     font-size: 2em;
+    border: 1px #000 solid;
 }
 
 .todos{
@@ -54,15 +59,15 @@ input{
 
 .btn-delete{
     width: 50px;
-    background: red;
+    background: #eee;
     color: #000;
     padding: 5px;
-    border-radius: 30px;
+    border: 1px #000 solid;
     font-size: 1em;
 }
 
 .no-todo{
-    font-size: 16px;
+    font-size: 20px;
     color: red;
     background: rgba(0,0,0,0.7);
     padding: 10px;
@@ -81,9 +86,17 @@ input{
 }
 
 @media(max-width:768px){
+    .wrapper{
+        display: block;
+    }
+
     .container{
         box-sizing: border-box;
         width: 100%;
+    }
+
+    #main-header{
+        font-size: 1em;
     }
 
     .todos{
