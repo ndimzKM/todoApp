@@ -16,6 +16,7 @@ body
             br
             form(action='/add' method='POST')
                 input(type='text' name='title' placeholder='New task')
+                input(type="text" name='time' placeholder='Scheduled time')
                 input(type='submit' value='Add Task')
         .container
             .no-todo(style='display:none;')
@@ -24,7 +25,7 @@ body
                 .todos
                     li.todo-item
                         a(href="/todo/"+todo._id)= todo.title
-                        p= todo.time
+                        p Scheduled time: #{todo.time}
                     form(action="/todo/"+todo._id method='POST')
                         input(type="hidden" name='_method' value='Delete')
                         button.btn-delete(type='submit' name='btn-delete') X

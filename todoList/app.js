@@ -65,8 +65,8 @@ app.get('/todo/:_id', (req,res) => {
 app.post('/add', checkAuthenticated, (req,res) => {
     let newTodo = new Todo();
     newTodo.title = req.body.title;
-    let time = new Date()
-    newTodo.time = time.toString();
+    //let time = new Date()
+    newTodo.time = req.body.time
     newTodo.done = 'Not done';
 
     newTodo.save((err) => {
